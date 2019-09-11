@@ -10,14 +10,14 @@ private:
     std::vector<Vec3i> faces;
     std::vector<std::vector<int> > v2h;    // vertex to halfedge incidency
     std::vector<int> opposites;            // halfedges
-    void compute_opposites();             
-public:                                   
-    Model(const char *filename);          
-                                          
+    void compute_opposites();
+public:
+    Model(const char *filename);
+
     int nverts();                          // number of vertices
     int nfaces();                          // number of triangles
     int nhalfedges();                      // number of halfedges = nfaces()*3
-                                          
+
     Vec3f &point(int i);                   // coordinates of the vertex i
     int vert(int fi, int li);              // index of the vertex for the triangle fi and local index li
     void get_bbox(Vec3f &min, Vec3f &max); // bounding box for all the vertices, including isolated ones
