@@ -1,0 +1,193 @@
+# vorpaline algo:delaunay=NN
+# vorpaline algo:hole_filling=loop_split
+# vorpaline algo:nn_search=BNN
+# vorpaline algo:parallel=true
+# vorpaline algo:predicates=fast
+# vorpaline algo:reconstruct=Co3Ne
+# vorpaline base_modules=luagrob;mesh;voxel
+# vorpaline batch=false
+# vorpaline biblio=false
+# vorpaline biblio:command_line=false
+# vorpaline co3ne=false
+# vorpaline co3ne:Psmooth_iter=0
+# vorpaline co3ne:T12=true
+# vorpaline co3ne:max_N_angle=60
+# vorpaline co3ne:max_hole_area=5%
+# vorpaline co3ne:max_hole_edges=500
+# vorpaline co3ne:min_comp_area=0.01%
+# vorpaline co3ne:min_comp_facets=10
+# vorpaline co3ne:nb_neighbors=30
+# vorpaline co3ne:radius=5%
+# vorpaline co3ne:repair=true
+# vorpaline co3ne:strict=false
+# vorpaline co3ne:use_normals=true
+# vorpaline debug=false
+# vorpaline gel=Lua
+# vorpaline gel:F10_script=
+# vorpaline gel:F1_script=
+# vorpaline gel:F2_script=
+# vorpaline gel:F3_script=
+# vorpaline gel:F4_script=
+# vorpaline gel:F5_script=
+# vorpaline gel:F6_script=
+# vorpaline gel:F7_script=
+# vorpaline gel:F8_script=
+# vorpaline gel:F9_script=
+# vorpaline gel:startup_files=
+# vorpaline gfx:GLSL=true
+# vorpaline gfx:GLSL_tesselation=true
+# vorpaline gfx:GLSL_version=0
+# vorpaline gfx:GLUP_profile=auto
+# vorpaline gfx:GL_debug=false
+# vorpaline gfx:GL_profile=compatibility
+# vorpaline gfx:GL_version=0
+# vorpaline gfx:default_full_screen_effect=Plain
+# vorpaline gfx:full_screen=false
+# vorpaline gfx:geometry=800x800
+# vorpaline gfx:no_decoration=false
+# vorpaline gfx:perspective=false
+# vorpaline gfx:transparent=false
+# vorpaline gui:font_size=18
+# vorpaline gui:mode=legacy
+# vorpaline gui:style=Light
+# vorpaline gui:tooltips=true
+# vorpaline hex=false
+# vorpaline hex:PGP_FF_fixed_topo=1
+# vorpaline hex:PGP_FF_free_topo=1
+# vorpaline hex:PGP_direct_solver=false
+# vorpaline hex:PGP_max_corr_prop=0.34999999999999998
+# vorpaline hex:algo=PGP3d
+# vorpaline hex:border_max_distance=20%
+# vorpaline hex:border_refine=false
+# vorpaline hex:constrained=true
+# vorpaline hex:frames_file=
+# vorpaline hex:keep_border=false
+# vorpaline hex:points_file=
+# vorpaline hex:prefer_seeds=true
+# vorpaline hex:prisms=false
+# vorpaline hex:pyramids=false
+# vorpaline hex:save_frames=false
+# vorpaline hex:save_points=false
+# vorpaline hex:save_surface=false
+# vorpaline hex:save_tets=false
+# vorpaline hex:tets_file=
+# vorpaline interactive=false
+# vorpaline log:features=*
+# vorpaline log:features_exclude=FileManager;Init;timings
+# vorpaline log:file_name=
+# vorpaline log:pretty=true
+# vorpaline log:quiet=false
+# vorpaline main=lib/graphite_imgui.lua
+# vorpaline modules=WarpDrive;hexdom
+# vorpaline nl:CUDA=false
+# vorpaline nl:MKL=false
+# vorpaline opt:Newton_m=7
+# vorpaline opt:nb_Lloyd_iter=5
+# vorpaline opt:nb_LpCVT_iter=30
+# vorpaline opt:nb_Newton_iter=30
+# vorpaline poisson:octree_depth=8
+# vorpaline post=true
+# vorpaline post:compute_normals=false
+# vorpaline post:isect=false
+# vorpaline post:max_deg3_dist=0.10000000000000001%
+# vorpaline post:max_hole_area=0%
+# vorpaline post:max_hole_edges=2000
+# vorpaline post:min_comp_area=0%
+# vorpaline post:repair=false
+# vorpaline pre=true
+# vorpaline pre:Nsmooth_iter=1
+# vorpaline pre:brutal_kill_borders=0
+# vorpaline pre:epsilon=0%
+# vorpaline pre:margin=0%
+# vorpaline pre:max_hole_area=0%
+# vorpaline pre:max_hole_edges=2000
+# vorpaline pre:min_comp_area=0%
+# vorpaline pre:repair=false
+# vorpaline pre:vcluster_bins=0
+# vorpaline profile=scan
+# vorpaline remesh=true
+# vorpaline remesh:Nfactor=5
+# vorpaline remesh:RVC_centroids=true
+# vorpaline remesh:anisotropy=0
+# vorpaline remesh:by_parts=false
+# vorpaline remesh:gradation=0
+# vorpaline remesh:lfs_samples=10000
+# vorpaline remesh:max_dist=0.20000000000000001
+# vorpaline remesh:multi_nerve=true
+# vorpaline remesh:nb_pts=30000
+# vorpaline remesh:refine=false
+# vorpaline remesh:sharp_edges=false
+# vorpaline shell=false
+# vorpaline skin=skin_imgui
+# vorpaline stat:sampling_step=0.5%
+# vorpaline sys:FPE=false
+# vorpaline sys:assert=abort
+# vorpaline sys:cancel=false
+# vorpaline sys:compression_level=3
+# vorpaline sys:lowmem=false
+# vorpaline sys:max_threads=12
+# vorpaline sys:multithread=true
+# vorpaline sys:show_win32_console=false
+# vorpaline sys:stats=false
+# vorpaline sys:use_doubles=false
+# vorpaline tet=false
+# vorpaline tet:preprocess=true
+# vorpaline tet:quality=2
+# vorpaline tet:refine=true
+v 0 0 0 
+v 1 0 0 
+v 1 1 0 
+v 0 1 0 
+v 0.5 0.5 0 
+v 0.5 0 0 
+v 1 0.5 0 
+v 0.5 1 0 
+v 0 0.5 0 
+v 0.25 0.25 0 
+v 0 0.25 0 
+v 0.25 0 0 
+v 0.5 0.25 0 
+v 0.25 0.5 0 
+v 0.75 0.25 0 
+v 0.75 0 0 
+v 1 0.25 0 
+v 0.75 0.5 0 
+v 0.75 0.75 0 
+v 1 0.75 0 
+v 0.75 1 0 
+v 0.5 0.75 0 
+v 0.25 0.75 0 
+v 0.25 1 0 
+v 0 0.75 0 
+f 14 11 10 
+f 14 9 11 
+f 11 12 10 
+f 11 1 12 
+f 12 13 10 
+f 12 6 13 
+f 13 14 10 
+f 13 5 14 
+f 13 16 15 
+f 13 6 16 
+f 16 17 15 
+f 16 2 17 
+f 17 18 15 
+f 17 7 18 
+f 18 13 15 
+f 18 5 13 
+f 18 20 19 
+f 18 7 20 
+f 20 21 19 
+f 20 3 21 
+f 21 22 19 
+f 21 8 22 
+f 22 18 19 
+f 22 5 18 
+f 22 24 23 
+f 22 8 24 
+f 24 25 23 
+f 24 4 25 
+f 25 14 23 
+f 25 9 14 
+f 14 22 23 
+f 14 5 22 
