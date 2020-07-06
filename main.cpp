@@ -40,11 +40,9 @@ int main(int argc, char** argv) {
 
     std::vector<std::vector<vec3> > stencils(max_valency+1); // virtual control volumes for all possible valencies
     for (int i = 1; i <= max_valency; i++) {
-        // compute the virtual control volume, the vertices are placed uniformly on the unit circle
-        stencils[i].push_back(vec3(1, 0, 0));
-        for (int j = 1; j < i; j++) {
-            double angle = j * 2. * M_PI / i;
-            stencils[i].push_back(vec3(cos(angle), sin(angle), 0));
+        for (int j = 0; j < i; j++) {                               // compute the virtual control volume,
+            double angle = j * 2. * M_PI / i;                       // the vertices are placed uniformly
+            stencils[i].push_back(vec3(cos(angle), sin(angle), 0)); // on the unit circle
         }
     }
 
