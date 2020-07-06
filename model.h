@@ -6,8 +6,8 @@
 
 class Model {
 private:
-    std::vector<Vec3f> verts;
-    std::vector<Vec3i> faces;
+    std::vector<vec3> verts;
+    std::vector<vec3i> faces;
     std::vector<std::vector<int> > v2h;    // vertex to halfedge incidency
     std::vector<int> opposites;            // halfedges
     void compute_opposites();
@@ -18,9 +18,9 @@ public:
     int nfaces();                          // number of triangles
     int nhalfedges();                      // number of halfedges = nfaces()*3
 
-    Vec3f &point(int i);                   // coordinates of the vertex i
+    vec3 &point(int i);                   // coordinates of the vertex i
     int vert(int fi, int li);              // index of the vertex for the triangle fi and local index li
-    void get_bbox(Vec3f &min, Vec3f &max); // bounding box for all the vertices, including isolated ones
+    void get_bbox(vec3 &min, vec3 &max); // bounding box for all the vertices, including isolated ones
 
     int first_halfedge(int vid);           // retrieve the index of the first halfedge in the star for the given vertex
     int from(int hid);                     // starting vertex for the halfedge
