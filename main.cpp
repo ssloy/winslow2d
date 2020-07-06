@@ -65,29 +65,25 @@ int main(int argc, char** argv) {
                 vec3 n1 = cross(virtv3 - virtv2, vec3(0, 0, 1)); // non-unit!
                 vec3 n2 = cross(virtv1 - virtv3, vec3(0, 0, 1));
                 vec3 n3 = cross(virtv2 - virtv1, vec3(0, 0, 1));
+
+                vec3 v1 = m.point(v);
+                vec3 v2 = m.point(m.to(hcur));
+                vec3 v3 = m.point(m.to(m.next(hcur)));
+
+                double x_u = n1.x*v1.x + n2.x*v2.x + n3.x*v3.x;
+                double x_v = n1.y*v1.x + n2.y*v2.x + n3.y*v3.x;
+                double y_u = n1.x*v1.y + n2.x*v2.y + n3.x*v3.y;
+                double y_v = n1.y*v1.y + n2.y*v2.y + n3.y*v3.y;
+
+                double alpha = x_v*x_v + y_v*y_v;
+                double beta  = x_u*x_v + y_u*y_v;
+                double gamma = x_u*x_u + y_u*y_u;
+
                 vec3 t = n1;
-
-                int i1 = v;
-                int i2 = m.to(hcur);
-                int i3 = m.to(m.next(hcur));
-
-                vec3 v1 = m.point(i1);
-                vec3 v2 = m.point(i2);
-                vec3 v3 = m.point(i3);
-
-                double x_xi  = n1.x*v1.x + n2.x*v2.x + n3.x*v3.x;
-                double x_eta = n1.y*v1.x + n2.y*v2.x + n3.y*v3.x;
-                double y_xi  = n1.x*v1.y + n2.x*v2.y + n3.x*v3.y;
-                double y_eta = n1.y*v1.y + n2.y*v2.y + n3.y*v3.y;
-
-                double alpha = x_eta * x_eta + y_eta * y_eta;
-                double beta  = x_xi * x_eta + y_xi * y_eta;
-                double gamma = x_xi * x_xi + y_xi * y_xi;
-
                 int c1 = 1 + cnt, c2 = 1 + (cnt+1)%valency[v];
-                coeff[0]  += alpha * n1.x * t.x - beta * n1.y * t.x - beta * n1.x * t.y + gamma * n1.y * t.y;
-                coeff[c1] += alpha * n2.x * t.x - beta * n2.y * t.x - beta * n2.x * t.y + gamma * n2.y * t.y;
-                coeff[c2] += alpha * n3.x * t.x - beta * n3.y * t.x - beta * n3.x * t.y + gamma * n3.y * t.y;
+                coeff[0]  += alpha*n1.x*t.x - beta*n1.y*t.x - beta*n1.x*t.y + gamma*n1.y*t.y;
+                coeff[c1] += alpha*n2.x*t.x - beta*n2.y*t.x - beta*n2.x*t.y + gamma*n2.y*t.y;
+                coeff[c2] += alpha*n3.x*t.x - beta*n3.y*t.x - beta*n3.x*t.y + gamma*n3.y*t.y;
 
                 cnt++;
                 hcur = m.opp(m.prev(hcur));
@@ -95,15 +91,13 @@ int main(int argc, char** argv) {
 
             double lambda = .1; // under-relaxation
             m.point(v) = m.point(v) * (1 - lambda);
-            {
-                int cnt = 0;
-                int hcur = hfirst;
-                do { // iterate through all triangles incident to the vertex v (1-ring of v)
-                    m.point(v) = m.point(v) - m.point(m.to(hcur)) * (lambda * coeff[cnt+1] / coeff[0]);
-                    cnt++;
-                    hcur = m.opp(m.prev(hcur));
-                } while (hcur != hfirst);
-            }
+            cnt = 0;
+            hcur = hfirst;
+            do { // iterate through all triangles incident to the vertex v (1-ring of v)
+                m.point(v) = m.point(v) - m.point(m.to(hcur)) * (lambda * coeff[cnt+1] / coeff[0]);
+                cnt++;
+                hcur = m.opp(m.prev(hcur));
+            } while (hcur != hfirst);
         } // forall inner vertices
     } // system loop
 
